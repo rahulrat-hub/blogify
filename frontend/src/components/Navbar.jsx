@@ -1,16 +1,13 @@
-import {useState} from "react";
+import react from 'react'
 import SearchIcon from "@mui/icons-material/Search";
 import { Link } from "react-router-dom";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
 import LightModeIcon from "@mui/icons-material/LightMode";
 
-function Navbar() {
+function Navbar({ darkMode, setDarkMode }) {
 
-    const [darkMode, setDarkMode] = useState(false);
-
-  return (
-    <div className={`${darkMode ? "bg-gray-900 text-white" : "bg-white text-black" } 
-    flex justify-between items-center p-5 rounded-[10px] m-4 shadow-[0_4px_20px_rgba(0,0,0,0.25)]`}> 
+    return (
+    <div className=" bg-white text-black dark:bg-gray-900 dark:text-white flex justify-between items-center p-5 rounded-[10px] m-4 shadow-[0_4px_20px_rgba(0,0,0,0.25)]"> 
      
       <h1 className="text-[18px] font-bold tracking-wide uppercase">Bolgify</h1>
       
@@ -23,7 +20,7 @@ function Navbar() {
 
       <div className="relative">
         <input type="text" placeholder="Search" 
-       className="rounded-[10px] h-8 w-50 p-2 border-2 outline-none" />
+       className="rounded-[10px] h-8 w-50 p-2 border outline-none" />
         <SearchIcon className="absolute top-1 right-1 cursor-pointer" />
       </div>
 

@@ -16,7 +16,7 @@ function Register() {
     <div className="flex p-4">
       {/* {LEFT}   */}
 
-      <div className="left h-130 w-full relative border rounded-l-[10px]">
+      <div className="left h-130 w-full relative rounded-l-[10px]">
         <img
           src={bg}
           alt="mountain-image"
