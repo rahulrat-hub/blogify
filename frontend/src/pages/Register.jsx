@@ -1,5 +1,5 @@
 import { useState } from "react";
-import bg from "../assets/bg.png";
+import bgr from "../assets/bgr.png";
 import MenuBookIcon from "@mui/icons-material/MenuBook";
 import BookmarkIcon from "@mui/icons-material/Bookmark";
 import axios from 'axios'
@@ -48,7 +48,7 @@ try{
 
       <div className="left h-130 w-full relative rounded-l-[10px]">
         <img
-          src={bg}
+          src={bgr}
           alt="mountain-image"
           className="h-full object-center object-cover rounded-l-[10px]"
         />
