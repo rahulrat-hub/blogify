@@ -1,4 +1,5 @@
 import express from 'express'
+import { Registerpost, Loginpost} from '../controllers/allcontrol.js'
 
 const userrouter = express.Router()
 

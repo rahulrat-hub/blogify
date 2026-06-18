@@ -3,23 +3,23 @@ import mongoose from 'mongoose'
 let registerSchema = mongoose.Schema({
     username : {
         type : String,
-        require : true,
+        required : true,
         unique : true,
         trim : true,
     },
 
     name : {
         type : String,
-        require : true,
+        required : true,
         trim : true,
     },
 
     password : {
         type : String,
-        require : true,
+        required : true,
         minlength : 4, 
-    }
-} 
+    },
+  }, 
 {timestamps : true}
 )
 

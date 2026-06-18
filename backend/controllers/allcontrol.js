@@ -23,7 +23,7 @@ export let Registerpost = async (req,res) =>{
         success : true,
         msg : "User Created"
     })
-   } ccatch (error){
+   } catch (error){
     res.status(500).json({
         success : false,
         msg : "Server Error",
