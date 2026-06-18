@@ -32,3 +32,39 @@ export let Registerpost = async (req,res) =>{
    }
 } 
 
+export let Loginpost = async (req,res)=>{
+
+    try{
+        let {username, password} = req.body
+        console.log(req.body)
+
+        let user = await register.findOne({username})
+
+        if(!user){
+         return res.json({
+                success : false,
+                msg : "username not found"
+            })
+           
+            let matchpass = await bcrypt.compare(password, user.password)
+            if(!matchpass){
+              return res.json({
+                    success : false,
+                    msg : "Invalid Password"
+                })
+            }else{
+                res.json({
+                 success : false,
+                 msg : "Login Successfully"
+                })
+            }
+        }
+    } catch (error){
+        res.status(500).json({
+            success : false,
+            msg : "server error",
+            error : error.message,
+        })
+    }
+}
+
