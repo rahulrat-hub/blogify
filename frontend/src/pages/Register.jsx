@@ -2,6 +2,7 @@ import { useState } from "react";
 import bg from "../assets/bg.png";
 import MenuBookIcon from "@mui/icons-material/MenuBook";
 import BookmarkIcon from "@mui/icons-material/Bookmark";
+import axios from 'axios'
 
 function Register() {
   const [username, setUsername] = useState("");
@@ -10,7 +11,36 @@ function Register() {
 
   const [password, setPassword] = useState("");
 
-  const [status, setStatus] = useState(false);
+  const [status, setStatus] = useState("register");
+
+async function RegisterHandling(e){
+
+    e.preventDefault()
+try{
+  if(status === "register"){
+    let registerDetail = await axios.post("http://localhost:4000/register",
+      {
+        username,
+        name,
+        password,
+      }
+    )
+    console.log(registerDetail)
+  }else{
+    let loginDetail = await axios.post("http://localhost:4000/login",
+      {
+        username,
+        password,
+      }
+    )
+    console.log(loginDetail)
+  }
+} catch (error){
+  console.log(error)
+  alert("server error")
+}
+ 
+  }
 
   return (
     <div className="flex p-4">
@@ -78,23 +108,36 @@ function Register() {
 
       {/* {RIGHT} */}
       <div className="right h-130 w-full border rounded-r-[10px]">
-        <h1 className="text-2xl font-bold tracking-wide px-4 py-4">
+       
+       {
+        status === 'login' ?  <h1 className="text-2xl font-bold tracking-wide px-4 py-4">
+          Login Your Account
+        </h1> :  <h1 className="text-2xl font-bold tracking-wide px-4 py-4">
           Create Your Account
         </h1>
+       }
 
         <p className="font-medium text-[14px] px-4">
           Fill in the details below to get started.
         </p>
 
-        <form className="space-y-6 m-8">
+        <form onSubmit={RegisterHandling} className="space-y-6 m-8">
           <input className="w-full p-2 outline-none border rounded-[10px]"
-          type="text" placeholder="Enter Your UserName" />
+          value={username}
+          type="text" placeholder="Enter Your UserName"
+          onChange={(e)=>setUsername(e.target.value)} />
+
+          {
+            status === 'login' ? "" : <input className="w-full p-2 outline-none border rounded-[10px]"
+            value={name}
+          type="text" placeholder="Enter Your Name"
+          onChange={(e)=>setName(e.target.value)} />
+          }
 
           <input className="w-full p-2 outline-none border rounded-[10px]"
-          type="text" placeholder="Enter Your Name" />
-
-          <input className="w-full p-2 outline-none border rounded-[10px]"
-          type="text" placeholder="Enter Your Password" />
+          value={password}
+          type="password" placeholder="Enter Your Password" 
+          onChange={(e)=>setPassword(e.target.value)}/>
 
          <label className="flex gap-2 font-medium">
           <input type="checkbox" 
@@ -102,9 +145,15 @@ function Register() {
           Remember me
          </label>
 
-         <button className="w-full border p-2 font-bold rounded-[10px] cursor-pointer bg-blue-600 text-white">Register</button>
+         {
+          status === "login" ? (<button className="w-full border p-2 font-bold rounded-[10px] cursor-pointer bg-blue-600 text-white">Login</button> 
+          ): (<button className="w-full border p-2 font-bold rounded-[10px] cursor-pointer bg-blue-600 text-white">Register</button>)
+         }
 
-         <p className="flex justify-between font-medium text-[17px]">Already have an account? <button className="underline underline-offset-1 cursor-pointer">Login</button> </p>
+         {
+          status === "register" ? <p className="flex justify-between font-medium text-[17px]">Already have an account?<button type="button" onClick={()=>setStatus("login")} className="underline underline-offset-1 cursor-pointer">Login</button> </p> 
+          : <p className="flex justify-between font-medium text-[17px]">Create Your Account<button type="button" onClick={()=>setStatus("register")} className="underline underline-offset-1 cursor-pointer">Register</button> </p> 
+         }
 
         </form>
       </div>
