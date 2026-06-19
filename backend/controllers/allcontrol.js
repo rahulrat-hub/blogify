@@ -58,6 +58,13 @@ export let Loginpost = async (req,res)=>{
                  msg : "Login Successfully"
                 })
             }
+            const token = jwt.sign({user._id, "secretkey12"})
+            console.log(token)
+            res.json({
+                success : true,
+                msg : "token created",
+                token,
+            })
         }
     } catch (error){
         res.status(500).json({
@@ -68,3 +75,22 @@ export let Loginpost = async (req,res)=>{
     }
 }
 
+export let blogpost = async (req,res)=>{
+    try{
+        let {image, title, description} = req.body
+        console.log(req.body)
+
+        let blogstructure = await blog.create({
+            image,
+            title,
+            description,
+        })
+    } catch (error){
+        console.log(error)
+        res.status(500).json({
+            success : false,
+            msg : "Server Error"
+            error : error.message,
+        })
+    }
+}

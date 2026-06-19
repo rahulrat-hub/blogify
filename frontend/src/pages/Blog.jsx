@@ -1,7 +1,23 @@
-import React from "react";
+import {useState} from "react";
 import bgr from "../assets/bgr.png";
+import axios from 'axios'
 
 function Blog() {
+
+const [image, setImage] = useState("")
+
+const [title, setTitle] = useState("")
+
+const [description, setDescription] = useState("")
+
+async function bloghandling(e){
+
+  e.preventDefault()
+
+let blogdetail = await axios.post("http://localhost:4000/blog",{image, title, description }
+console.log(blogdetail)
+)
+}
   return (
     <div className="min-screen w-full relative">
       <img src={bgr} alt="" className="h-full w-full" />
