@@ -111,3 +111,21 @@ export let blogpost = async (req, res) => {
     });
   }
 };
+
+export let blogget = async (req,res)=>{
+ 
+  let bloginfo = await blog.find();
+
+  if(bloginfo.length > 0){
+    res.json({
+      success : true,
+      msg : "Data is Coming",
+      bloginfo
+    });
+  }else{
+    res.status(404).json({
+      success : false,
+      msg : "Data is not found"
+    });
+  }
+}

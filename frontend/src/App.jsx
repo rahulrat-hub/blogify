@@ -6,6 +6,7 @@ import Blog from './pages/Blog'
 import About from './pages/About'
 import Contact from './pages/Contact'
 import Navbar from './components/Navbar'
+import Allblog from './pages/Allblog'
 
 function App() {
 
@@ -27,6 +28,7 @@ function App() {
         <Route path="/blog" element={<Blog />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/allblog" element={<Allblog />} />
         </Routes>
     </div>
   )

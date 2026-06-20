@@ -16,6 +16,7 @@ function Navbar({ darkMode, setDarkMode }) {
         <Link to="/blog">Blog</Link>
         <Link to="/about">About</Link>
         <Link to="/contact">Contact</Link>
+         <Link to="/allblog">Allblog</Link>
       </nav>
 
       <div className="relative">
