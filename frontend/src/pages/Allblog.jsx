@@ -25,12 +25,26 @@ function Allblog() {
     fetchData()
   },[])
 
+  const deleteBlog = async (id) => {
+    try{
+      await axios.delete(`http://localhost:4000/blog/${id}`);
+      alert("Blog Deleted")
+
+      // {update}
+      setBlogFetch(
+        blogfetch.filter((item)=> item._id !== id)
+      )
+    } catch (error){
+      console.log(error)
+    }
+  }
+
   return (
     <div>
       <h1 className="text-4xl font-bold text-center">
         Explore Our Blog Collection
       </h1>
-      <p className="text-[15px] font-medium text-center p-2" >Discover All Our Latest Story And Updates</p>
+      <p className="text-[15px] font-medium text-center p-2">Discover All Our Latest Story And Updates</p>
       
       <div className="m-2 flex gap-x-10 gap-y-6 px-8 py-8 flex-wrap mx-15 border-t ">
        
@@ -41,6 +55,7 @@ function Allblog() {
             id={obj._id}
             image={obj.image}
             title={obj.title}
+            deleteBlog={deleteBlog}
             // description={obj.description}
             />
             

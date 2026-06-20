@@ -129,3 +129,37 @@ export let blogget = async (req,res)=>{
     });
   }
 }
+
+// {CURD}
+
+export let Read = async (req,res)=>{
+  const readblog = await blog.findById(req.params.id);
+  res.json(readblog)
+}
+
+export let Edit = async (req,res)=>{
+  const editblog = await blog.findByIdAndUpdate(
+    req.params.id,
+    req.body,
+    {new : true}
+  );
+  res.json({
+    success : true,
+    msg : "Blog Updated",
+    editblog
+  })
+}
+
+export let Delete = async (req,res)=>{
+  try{
+    await blog.findByIdAndDelete(req.params.id);
+    res.json({
+      succes : true,
+      msg : "Blog deleted successfully",
+    })
+  } catch (error){
+    res.status(500).json({
+      error : error.message
+    })
+  }
+}

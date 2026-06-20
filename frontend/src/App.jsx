@@ -7,6 +7,8 @@ import About from './pages/About'
 import Contact from './pages/Contact'
 import Navbar from './components/Navbar'
 import Allblog from './pages/Allblog'
+import SingleBlog from './pages/SingleBlog'
+import EditBlog from './pages/EditBlog'
 
 function App() {
 
@@ -29,6 +31,9 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/allblog" element={<Allblog />} />
+        <Route path="/blog/:id" element={<SingleBlog />} />
+        <Route path="/edit/:id" element={<EditBlog />} />
+
         </Routes>
     </div>
   )
