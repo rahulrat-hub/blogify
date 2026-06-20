@@ -123,7 +123,7 @@ export let blogget = async (req,res)=>{
       bloginfo
     });
   }else{
-    res.status(404).json({
+    res.json({
       success : false,
       msg : "Data is not found"
     });

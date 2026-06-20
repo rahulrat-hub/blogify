@@ -19,6 +19,10 @@ const blogSchema = mongoose.Schema({
         trim : true,
     },
 
+   readTime : {
+        type : String,
+    }
+,
 },
 {timestamps : true},
 )

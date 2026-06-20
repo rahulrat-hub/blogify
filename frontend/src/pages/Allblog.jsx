@@ -54,7 +54,7 @@ function Allblog() {
             <Card 
             id={obj._id}
             image={obj.image}
-            title={obj.title}
+            title={obj.title.slice(0,50)}
             deleteBlog={deleteBlog}
             // description={obj.description}
             />
