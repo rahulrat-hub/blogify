@@ -14,9 +14,15 @@ async function bloghandling(e){
 
   e.preventDefault()
 
-let blogdetail = await axios.post("http://localhost:4000/blog",{image, title, description }
+  const formData = new FormData();
+
+  formData.append("image", image);
+  formData.append("title", title);
+  formData.append("description", description);
+
+
+let blogdetail = await axios.post("http://localhost:4000/blog",formData)
 console.log(blogdetail)
-)
 }
   return (
     <div className="min-screen w-full relative">
@@ -27,7 +33,7 @@ console.log(blogdetail)
           Share Your Ideas With The World.
         </h1>
 
-        <form
+        <form onSubmit={bloghandling}
           className="p-4 space-y-6 backdrop-blur-md
          bg-white/20 h-105 w-120 rounded-[10px] "
         >
@@ -62,19 +68,25 @@ console.log(blogdetail)
               <p className="text-gray-500 text-sm">or click to upload</p>
             </label>
 
-            <input id="image-upload" type="file" className="hidden" />
+            <input id="image-upload" type="file" className="hidden"
+            onChange={(e)=>setImage(e.target.files[0])} 
+            />
           </div>
 
           <input
             type="text"
+            value={title}
             className="w-full border rounded-[10px] p-2 outline-none"
             placeholder="Enter Your Title"
+            onChange={(e)=>setTitle(e.target.value)}
           />
 
           <input
             type="text"
+            value={description}
             className="w-full border rounded-[10px] p-2 outline-none"
             placeholder="Enter Your Description"
+            onChange={(e)=>setDescription(e.target.value)}
           />
 
           <div className="flex gap-6 px-28">
