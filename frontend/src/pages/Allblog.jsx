@@ -1,13 +1,18 @@
 import { useState, useEffect } from "react";
 import axios from 'axios'
 import Card from '../components/Card'
+import SearchIcon from "@mui/icons-material/Search";
 
 function Allblog() {
   const [blogfetch, setBlogFetch] = useState([]);
+    const [search, setSearch] = useState("")
+  const [sort, setSort] = useState("latest")
+  const [debounceSearch, setDebounceSearch] = useState("")
 
+   
   async function fetchData() {
     try {
-      let result = await axios.get("http://localhost:4000/blog");
+      let result = await axios.get(`http://localhost:4000/blogs?search=${search}&sort=${sort}`);
       console.log(result.data);
 
       if (result.data.success) {
@@ -22,8 +27,16 @@ function Allblog() {
   }
 
   useEffect(()=>{
-    fetchData()
-  },[])
+   const timer = setTimeout(()=>{
+    setDebounceSearch(search)
+   }, 500)
+
+   return () => clearTimeout(timer)
+  },[search])
+
+  useEffect(()=>{
+    fetchData();
+  },[debounceSearch, sort])
 
   const deleteBlog = async (id) => {
     try{
@@ -40,13 +53,30 @@ function Allblog() {
   }
 
   return (
-    <div>
+    <div className="bg-white text-black dark:bg-gray-900  border-white dark:text-white">
       <h1 className="text-4xl font-bold text-center">
         Explore Our Blog Collection
       </h1>
       <p className="text-[15px] font-medium text-center p-2">Discover All Our Latest Story And Updates</p>
+
+      <div className="flex justify-center gap-20 ">
+       
+        <input type="text" 
+        value={search}
+        onChange={(e)=>setSearch(e.target.value)}
+        placeholder="Search" 
+       className="rounded-[10px] h-8 w-140 p-2 border outline-none relative" />
+        <SearchIcon className="absolute top-45 right-110 cursor-pointer" />
       
-      <div className="m-2 flex gap-x-10 gap-y-6 px-8 py-8 flex-wrap mx-15 border-t ">
+      <select className="border outline-none rounded-[10px] p-1 font-medium text-[14px]"
+      value={sort}
+      onChange={(e)=>setSort(e.target.value)}>
+        <option value="latest">Latest</option>
+        <option value="popular">Popular</option>
+      </select>
+        </div>
+      
+      <div className="mt-4 flex gap-x-10 gap-y-6 px-8 py-8 flex-wrap mx-15 border-t ">
        
         {
         blogfetch.map((obj,index)=>(

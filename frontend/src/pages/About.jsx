@@ -1,8 +1,9 @@
 import React from "react";
+import about from '../assets/about.jpg'
 
 function About() {
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen  bg-white text-black dark:bg-gray-900 dark:text-white">
 
       {/* Hero Section */}
       <section className="max-w-7xl mx-auto px-6 py-20">
@@ -44,7 +45,7 @@ function About() {
         <div className="grid md:grid-cols-2 gap-12 items-center">
 
           <img
-            src="https://images.unsplash.com/photo-1494790108377-be9c29b29330"
+            src={about}
             alt=""
             className="rounded-3xl shadow-lg"
           />

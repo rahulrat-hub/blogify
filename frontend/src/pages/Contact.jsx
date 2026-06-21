@@ -1,9 +1,10 @@
 import React from "react";
 import { Mail, Phone, MapPin, Clock } from "lucide-react";
+import about from '../assets/about.jpg'
 
 function Contact() {
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-white text-black dark:bg-gray-900 dark:text-white">
 
       {/* Hero Section */}
       <section className="w-full bg-white py-20 px-8">
@@ -30,7 +31,7 @@ function Contact() {
 
           <div>
             <img
-              src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee"
+              src={about}
               alt=""
               className="rounded-3xl shadow-lg"
             />

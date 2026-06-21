@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom'
 
 function Card({image, title, description, id, deleteBlog}) {
   return (
-    <div className="h-85 w-80  shadow-[0_4px_20px_rgba(0,0,0,0.25)] rounded-2xl" >
+    <div className="h-85 w-80 border border-white shadow-[0_4px_20px_rgba(0,0,0,0.25)] rounded-2xl" >
 
       <img src={image} 
       alt=""

@@ -25,8 +25,8 @@ let blogdetail = await axios.post("http://localhost:4000/blog",formData)
 console.log(blogdetail)
 }
   return (
-    <div className="min-screen w-full relative">
-      <img src={bgr} alt="" className="h-full w-full" />
+    <div className="min-h w-full relative ">
+      <img src={bgr} alt="" className="h-[85%] w-full" />
 
       <div className="absolute top-2 left-100 border-2 rounded-[10px] my-6">
         <h1 className="text-[20px] font-bold tracking-wide p-4">

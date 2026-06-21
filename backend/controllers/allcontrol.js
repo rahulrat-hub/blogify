@@ -2,6 +2,7 @@ import bcrypt from "bcrypt";
 import register from "../Models/registerModel.js";
 import {v2 as cloudinary} from 'cloudinary'
 import blog from '../Models/blogModel.js'
+import jwt from 'jsonwebtoken'
 
 export let Registerpost = async (req, res) => {
   try {
@@ -45,27 +46,26 @@ export let Loginpost = async (req, res) => {
         success: false,
         msg: "username not found",
       });
-
+    }
       let matchpass = await bcrypt.compare(password, user.password);
       if (!matchpass) {
         return res.json({
           success: false,
           msg: "Invalid Password",
         });
-      } else {
-        res.json({
-          success: false,
-          msg: "Login Successfully",
-        });
-      }
-      const token = jwt.sign({ id: user._id }, "secretkey12");
+      } 
+      
+      const token = jwt.sign({ id: user._id }, "secretkey12",
+        {expiresIn : "1d"}
+      );
       console.log(token);
+      
       res.json({
-        success: true,
-        msg: "token created",
-        token,
-      });
-    }
+          success: true,
+          msg: "Login Successfully",
+          token,
+        });
+    
   } catch (error) {
     res.status(500).json({
       success: false,
@@ -162,4 +162,45 @@ export let Delete = async (req,res)=>{
       error : error.message
     })
   }
+}
+
+// {Search & Sort}
+
+export const SearchSortHandling = async (req,res)=>{
+
+  try{
+    const {search , sort} = req.query;
+    // console.log("controller hit")
+    // console.log(req.query)
+    let query = {};
+
+    if(search){
+      query.title = {
+        $regex : search,
+        $options : "i"
+      }
+    }
+// console.log(search)
+    let blogquery = blog.find(query)
+   
+    if(sort === "latest"){
+      blogquery = blogquery.sort({ createdAt : -1 })
+    }
+
+    if(sort === "popular"){
+      blogquery = blogquery.sort({ views : -1 })
+    }
+    console.log(sort)
+      const queryresult = await blogquery
+
+     res.json({
+      success : true,
+      bloginfo : queryresult,
+    
+    })
+  } catch (error){
+    console.log(error);
+  }
+
+
 }

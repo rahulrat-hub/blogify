@@ -26,14 +26,14 @@ useEffect(()=>{
 },[id]);
 
 return (
-    <div>
+    <div className="bg-white text-black dark:bg-gray-900 dark:text-white p-2">
         {
             blog ? (
                 <div className="min-h-screen">
                     
-                    <div className="m-7 flex gap-6 relative">
+                    <div className="m-7 flex gap-6 relative ">
                     <img src={blog.image} alt=""
-                    className="h-100 w-120 border" />
+                    className="h-100 w-120 border rounded-[5px]" />
                   
                    <div className="flex flex-col gap-5">
                      <h1 className="text-2xl font-bold border-b">{blog.title}</h1>
@@ -42,7 +42,7 @@ return (
                
                 </div>
                   
-                   <div className="absolute bottom-25 left-10 font-bold ">
+                   <div className="absolute bottom-20 left-10 font-bold ">
                     <Authorinfo
                    author="Admin"
                    createdAt={blog.createdAt}

@@ -13,11 +13,14 @@ import connectCloudinary from './config/cloudinary.js'
 let app = express()
 app.use(express.json())
 app.use(express.urlencoded({ extended : true }))
-app.use(cors())
+app.use(cors({
+    origin : "http://localhost:5173",
+    credentials : true,
+}))
 app.use(userrouter)
 connectDB()
 connectCloudinary()
 
 
 
-app.listen(4000, console.log("running"))
+app.listen(4000, ()=>{console.log("running")})
