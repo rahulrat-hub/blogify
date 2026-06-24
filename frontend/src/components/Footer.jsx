@@ -5,10 +5,11 @@ import CallIcon from "@mui/icons-material/Call";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import CopyrightIcon from '@mui/icons-material/Copyright';
 
+
 function Footer() {
     return (
-      <div className="h-70 rounded-[10px] border m-2">
-      <div className="upper flex gap-20">
+      <div className="h-70 rounded-[10px] border mx-2 mt-4">
+         <div className="upper flex gap-20">
         <div className="w-2/12">
           <h1 className="font-bold text-2xl p-4">Bolgify</h1>
           <p className="font-medium text-[14px] px-4">
