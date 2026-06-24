@@ -1,11 +1,11 @@
 import React from 'react'
-import Register from '../pages/Register'
 import Footer from './Footer'
+import Hero from './Hero'
 
 function Home() {
   return (
-    <div className="min-h-screen bg-white text-black dark:bg-gray-900 dark:text-white">
-      <Register />
+    <div className=" bg-white text-black dark:bg-gray-900 dark:text-white">
+     <Hero />
       <Footer />
     </div>
   )

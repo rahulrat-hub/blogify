@@ -18,6 +18,7 @@ function Navbar({ darkMode, setDarkMode }) {
         <Link to="/about">About</Link>
         <Link to="/contact">Contact</Link>
          <Link to="/allblog">Allblog</Link>
+          <Link className="ml-100" to="/Register">Login</Link>
       </nav>
 
       <button onClick={()=>setDarkMode(!darkMode)} className="cursor-pointer" > 
