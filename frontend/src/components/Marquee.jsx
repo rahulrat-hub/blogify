@@ -10,6 +10,13 @@ function marquee({title}) {
              <span>{title}</span>
               <span>{title}</span>
         </div>
+
+         <div className="flex gap-10 px-5 text-sm tracking-[4px] font-medium">
+           <span>{title}</span>
+            <span>{title}</span>
+             <span>{title}</span>
+              <span>{title}</span>
+        </div>
        </div>
     </div>
   )

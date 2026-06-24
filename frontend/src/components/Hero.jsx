@@ -12,7 +12,7 @@ import Marquee from './Marquee'
 function Hero() {
   return (
     <div className="">
-      <div className="min-h w-full p-4 flex gap-20 ">
+      <div className="min-h w-full p-4 flex gap-20">
       <div className="left w-160 ml-8">
         <p className="text-[14px] font-medium inline-flex mx-4 p-2 rounded-2xl bordre bg-[#EFEEFE] text-[#2F2E86]">
           Welcome to blogify
