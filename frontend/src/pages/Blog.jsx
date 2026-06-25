@@ -89,7 +89,7 @@ console.log(blogdetail)
             onChange={(e)=>setDescription(e.target.value)}
           />
 
-          <div className="flex gap-6 px-28">
+          <div className="flex gap-6 justify-center">
             <button className="border rounded-[5px] p-2 font-bold bg-gray-200 cursor-pointer">Save Blog</button>
 
           <button className="border rounded-[5px] p-2 bg-violet-500 font-bold cursor-pointer">Pulish Blog</button>
