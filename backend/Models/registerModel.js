@@ -19,6 +19,12 @@ let registerSchema = mongoose.Schema({
         required : true,
         minlength : 4, 
     },
+
+    role : {
+        type : String,
+        enum : ["user", "admin"],
+        default : "user",
+    },
   }, 
 {timestamps : true}
 )

@@ -4,7 +4,7 @@ import MenuBookIcon from "@mui/icons-material/MenuBook";
 import BookmarkIcon from "@mui/icons-material/Bookmark";
 import axios from 'axios'
 
-function Register() {
+function Register({settoken}) {
   const [username, setUsername] = useState("");
 
   const [name, setName] = useState("");
@@ -33,7 +33,10 @@ try{
         password,
       }
     )
-    console.log(loginDetail)
+    if(loginDetail.data.success){
+      localStorage.setItem("token", loginDetail.data.token)
+      settoken(loginDetail.data.token)
+    }
   }
 } catch (error){
   console.log(error)

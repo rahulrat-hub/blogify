@@ -13,6 +13,7 @@ import EditBlog from './pages/EditBlog'
 function App() {
 
    const [darkMode, setDarkMode] = useState(false);
+   const [token, settoken] = useState()
 
       useEffect(() => {
     document.documentElement.classList.toggle("dark", darkMode);
@@ -26,7 +27,7 @@ function App() {
       />
         <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/register" element={<Register />} />
+        <Route path="/register" element={<Register settoken={settoken} />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />

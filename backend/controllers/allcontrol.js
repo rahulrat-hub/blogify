@@ -55,7 +55,10 @@ export let Loginpost = async (req, res) => {
         });
       } 
       
-      const token = jwt.sign({ id: user._id }, "secretkey12",
+      const token = jwt.sign({ 
+        id: user._id,
+      role : user.role,
+      }, "secretkey12",
         {expiresIn : "1d"}
       );
       console.log(token);
@@ -64,6 +67,11 @@ export let Loginpost = async (req, res) => {
           success: true,
           msg: "Login Successfully",
           token,
+          user : {
+            id : user._id,
+            username : user.username,
+            role : user.role,__
+          }
         });
     
   } catch (error) {
