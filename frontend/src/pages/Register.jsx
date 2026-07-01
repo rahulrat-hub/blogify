@@ -73,7 +73,7 @@ try{
 
             <div className="text-[15px] flex flex-col gap-1">
               <h1 className="font-bold">Read Quality Content</h1>
-              <p className="font-medium">
+              <p className="font-medium text-[12px]">
                 Explore well-researched blogs written and managed by our admin
                 team across multiple companies
               </p>
@@ -85,7 +85,7 @@ try{
 
             <div className="text-[15px] flex flex-col gap-1">
               <h1 className="font-bold">Save & Organize</h1>
-              <p className="font-medium">
+              <p className="font-medium text-[12px]">
                 Bookmark your favorite articles and create your personal reading
                 collection for quick and easy access anytime.
               </p>
@@ -99,7 +99,7 @@ try{
 
             <div className="text-[15px] flex flex-col gap-1">
               <h1 className="font-bold">Engage & Connect</h1>
-              <p className="font-medium">
+              <p className="font-medium text-[12px]">
                 Share your thoughts through comments, participate in
                 discussions, and become part of a growing community of readers.
               </p>
