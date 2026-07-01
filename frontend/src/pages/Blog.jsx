@@ -28,7 +28,7 @@ console.log(blogdetail)
     <div className="min-h w-full relative ">
       <img src={bgr} alt="" className="h-[85%] w-full" />
 
-      <div className="absolute top-2 left-100 border-2 rounded-[10px] my-6">
+      <div className="absolute top-1 left-85 border-2 rounded-[10px] ">
         <h1 className="text-[20px] font-bold tracking-wide p-4">
           Share Your Ideas With The World.
         </h1>
