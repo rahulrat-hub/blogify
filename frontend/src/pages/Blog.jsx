@@ -29,19 +29,13 @@ async function bloghandling(e){
 
 
   const token = localStorage.getItem("token")
-  console.log({
-  Authorization: `Bearer ${token}`,
-});
-
-console.log("Token:", token);
-
+  
 let blogdetail = await axios.post("http://localhost:4000/blog",formData, {headers : {Authorization : `Bearer ${token}`}})
 console.log(blogdetail.data)
 
 if(blogdetail.data.success){
-console.log("done")
 
- setImage(null);
+  setImage(null);
   setTitle("");
   setDescription("");
 

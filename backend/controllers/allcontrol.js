@@ -7,6 +7,7 @@ import jwt from 'jsonwebtoken'
 export let Registerpost = async (req, res) => {
   try {
     let { username, name, password } = req.body;
+
     console.log(req.body);
 
     // {Salt generate}
@@ -47,10 +48,9 @@ export let Loginpost = async (req, res) => {
         msg: "username not found",
       });
     }
-    console.log("Entered Password:", password);
-console.log("DB Password:", user.password);
+ 
       let matchpass = await bcrypt.compare(password, user.password);
-      console.log("Password Match:", matchpass);
+      
       if (!matchpass) {
         return res.json({
           success: false,

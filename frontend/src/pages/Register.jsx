@@ -25,7 +25,7 @@ try{
         password,
       }
     )
-    console.log(registerDetail)
+    console.log(registerDetail.data)
   }else{
     let loginDetail = await axios.post("http://localhost:4000/login",
       {
@@ -33,7 +33,7 @@ try{
         password,
       }
     )
-    console.log("Login Response:", loginDetail.data);
+   
     if(loginDetail.data.success){
      
       localStorage.removeItem("token")
@@ -41,9 +41,7 @@ try{
       localStorage.setItem("token", loginDetail.data.token)
      
       settoken(loginDetail.data.token)
-
-      console.log("Saved Token:", localStorage.getItem("token"));
-     
+      
       }
   }
 } catch (error){
