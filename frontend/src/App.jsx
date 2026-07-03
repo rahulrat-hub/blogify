@@ -13,7 +13,7 @@ import EditBlog from './pages/EditBlog'
 function App() {
 
    const [darkMode, setDarkMode] = useState(false);
-   const [token, settoken] = useState()
+   const [token, settoken] = useState(localStorage.getItem("token")?localStorage.getItem("token"):"")
 
       useEffect(() => {
     document.documentElement.classList.toggle("dark", darkMode);

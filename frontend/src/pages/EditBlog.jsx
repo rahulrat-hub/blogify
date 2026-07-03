@@ -10,7 +10,7 @@ function EditBlog() {
 
   async function EditDataFetch() {
     try {
-      let editdata = await axios.get(`http://localhost:4000/blog/${id}`);
+      let editdata = await axios.get(`http://localhost:4000/blog/${id}`, {header : {token}});
       setTitle(editdata.data.title);
       setDescription(editdata.data.description);
     } catch (error) {

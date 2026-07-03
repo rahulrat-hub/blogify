@@ -66,7 +66,7 @@ function Allblog() {
         onChange={(e)=>setSearch(e.target.value)}
         placeholder="Search" 
        className="rounded-[10px] h-8 w-140 p-2 border outline-none relative" />
-        <SearchIcon className="absolute top-45 right-110 cursor-pointer" />
+        <SearchIcon className="absolute top-45 right-95 cursor-pointer" />
       
       <select className="border outline-none rounded-[10px] p-1 font-medium text-[14px]"
       value={sort}
@@ -76,7 +76,7 @@ function Allblog() {
       </select>
         </div>
       
-      <div className="mt-4 flex gap-x-10 gap-y-6 px-8 py-8 flex-wrap mx-15 border-t ">
+      <div className="mt-4 flex gap-x-6 gap-y-6 px-8 py-8 flex-wrap mx-1 border-t ">
        
         {
         blogfetch.map((obj,index)=>(

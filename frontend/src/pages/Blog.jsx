@@ -1,18 +1,25 @@
-import {useState} from "react";
+import {useState, useRef} from "react";
 import bgr from "../assets/bgr.png";
 import axios from 'axios'
 
 function Blog() {
 
-const [image, setImage] = useState("")
+const [image, setImage] = useState(null)
 
 const [title, setTitle] = useState("")
 
 const [description, setDescription] = useState("")
 
-async function bloghandling(e){
+const fileInputRef = useRef(null)
 
+async function bloghandling(e){
   e.preventDefault()
+
+  try{
+  
+    if(!image || !title || !description){
+      return alert("All fileds are required")
+    }
 
   const formData = new FormData();
 
@@ -21,8 +28,27 @@ async function bloghandling(e){
   formData.append("description", description);
 
 
-let blogdetail = await axios.post("http://localhost:4000/blog",formData)
-console.log(blogdetail)
+  const token = localStorage.getItem("token")
+
+let blogdetail = await axios.post("http://localhost:4000/blog",formData, {headers : {Authorization : `Bearer ${token}`}})
+console.log(blogdetail.data)
+
+if(blogdetail.data.success){
+console.log("done")
+
+ setImage(null);
+  setTitle("");
+  setDescription("");
+
+  fileInputRef.current.value = "";
+
+}else{
+  alert(blogdetail.data.msg)
+}
+  } catch(error){
+    console.log(error)
+  }
+
 }
   return (
     <div className="min-h w-full relative ">
@@ -68,7 +94,7 @@ console.log(blogdetail)
               <p className="text-gray-500 text-sm">or click to upload</p>
             </label>
 
-            <input id="image-upload" type="file" className="hidden"
+            <input useRef={fileInputRef} id="image-upload" type="file" className="hidden"
             onChange={(e)=>setImage(e.target.files[0])} 
             />
           </div>
@@ -90,9 +116,9 @@ console.log(blogdetail)
           />
 
           <div className="flex gap-6 justify-center">
-            <button className="border rounded-[5px] p-2 font-bold bg-gray-200 cursor-pointer">Save Blog</button>
+            <button type="button" className="border rounded-[5px] p-2 font-bold bg-gray-200 cursor-pointer">Save Blog</button>
 
-          <button className="border rounded-[5px] p-2 bg-violet-500 font-bold cursor-pointer">Pulish Blog</button>
+          <button type="submit" className="border rounded-[5px] p-2 bg-violet-500 font-bold cursor-pointer">Pulish Blog</button>
           </div>
 
        </form>
