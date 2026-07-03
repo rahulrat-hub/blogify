@@ -33,10 +33,18 @@ try{
         password,
       }
     )
+    console.log("Login Response:", loginDetail.data);
     if(loginDetail.data.success){
+     
+      localStorage.removeItem("token")
+     
       localStorage.setItem("token", loginDetail.data.token)
+     
       settoken(loginDetail.data.token)
-    }
+
+      console.log("Saved Token:", localStorage.getItem("token"));
+     
+      }
   }
 } catch (error){
   console.log(error)

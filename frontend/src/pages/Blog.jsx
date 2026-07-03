@@ -29,6 +29,11 @@ async function bloghandling(e){
 
 
   const token = localStorage.getItem("token")
+  console.log({
+  Authorization: `Bearer ${token}`,
+});
+
+console.log("Token:", token);
 
 let blogdetail = await axios.post("http://localhost:4000/blog",formData, {headers : {Authorization : `Bearer ${token}`}})
 console.log(blogdetail.data)
@@ -94,7 +99,7 @@ console.log("done")
               <p className="text-gray-500 text-sm">or click to upload</p>
             </label>
 
-            <input useRef={fileInputRef} id="image-upload" type="file" className="hidden"
+            <input ref={fileInputRef} id="image-upload" type="file" className="hidden"
             onChange={(e)=>setImage(e.target.files[0])} 
             />
           </div>

@@ -47,7 +47,10 @@ export let Loginpost = async (req, res) => {
         msg: "username not found",
       });
     }
+    console.log("Entered Password:", password);
+console.log("DB Password:", user.password);
       let matchpass = await bcrypt.compare(password, user.password);
+      console.log("Password Match:", matchpass);
       if (!matchpass) {
         return res.json({
           success: false,
@@ -70,7 +73,7 @@ export let Loginpost = async (req, res) => {
           user : {
             id : user._id,
             username : user.username,
-            role : user.role,__
+            role : user.role,
           }
         });
     

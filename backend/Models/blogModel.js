@@ -34,4 +34,4 @@ const blogSchema = mongoose.Schema({
 
 let blog = mongoose.model("bloginfo", blogSchema)
 
-export default blog
+export default blog;
