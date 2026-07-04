@@ -14,8 +14,8 @@ let app = express()
 app.use(express.json())
 app.use(express.urlencoded({ extended : true }))
 app.use(cors({
-    origin : "http://localhost:5173",
-    "https://blogify-blond-ten.vercel.app/",
+    origin : ["http://localhost:5173",
+    "https://blogify-blond-ten.vercel.app",],
     credentials : true,
 }))
 app.use(userrouter)
@@ -23,5 +23,8 @@ connectDB()
 connectCloudinary()
 
 
+const PORT  = process.env.PORT || 4000
 
-app.listen(4000, ()=>{console.log("running")})
+
+
+app.listen(PORT, ()=>{console.log(`server running on port ${PORT}`)})
