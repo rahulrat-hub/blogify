@@ -16,8 +16,10 @@ const auth = async (req,res,next)=>{
 const token = authHeader.split(" ")[1];
 
  let decoded = jwt.verify(token, "secretkey12")
+ console.log(decoded);
 
  const user = await register.findById(decoded.id).select("-password")
+ console.log(user.role);
  if(!user){
     return res.json({
         success : false,
@@ -26,6 +28,7 @@ const token = authHeader.split(" ")[1];
  }
 
  req.user = user
+ console.log(req.user);
 
  next()
 

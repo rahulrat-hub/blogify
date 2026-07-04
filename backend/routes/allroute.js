@@ -11,8 +11,8 @@ userrouter.post("/login", Loginpost)
 userrouter.post("/blog", auth, isAdmin, upload.single("image"), blogpost)
 userrouter.get("/blog", blogget)
 userrouter.get("/blog/:id", Read)
-userrouter.put("/blog/:id", Edit)
-userrouter.delete("/blog/:id", Delete)
+userrouter.put("/blog/:id", auth, isAdmin, Edit)
+userrouter.delete("/blog/:id", auth, isAdmin, Delete)
 userrouter.get("/blogs", SearchSortHandling)
 
 export default userrouter

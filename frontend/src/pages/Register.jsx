@@ -43,6 +43,8 @@ try{
       settoken(loginDetail.data.token)
       
       }
+      
+      localStorage.setItem("user", JSON.stringify(loginDetail.data.user))
   }
 } catch (error){
   console.log(error)

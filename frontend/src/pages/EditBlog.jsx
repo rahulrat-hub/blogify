@@ -1,8 +1,16 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
+import {Navigate} from 'react-router-dom'
 
 function EditBlog() {
+  const user = JSON.parse(localStorage.getItem("user"))
+
+  if(user?.role !== "admin"){
+    return <Navigate to="/" />;
+  }
+
+
   const { id } = useParams();
 
   const [title, setTitle] = useState("");
@@ -10,8 +18,11 @@ function EditBlog() {
 
   async function EditDataFetch() {
     try {
-      let editdata = await axios.get(`http://localhost:4000/blog/${id}`, {header : {token}});
+     
+ let editdata = await axios.get(`http://localhost:4000/blog/${id}`);
+      
       setTitle(editdata.data.title);
+      
       setDescription(editdata.data.description);
     } catch (error) {
       console.log(error);
@@ -19,10 +30,11 @@ function EditBlog() {
   }
 
 async function UpdateBlog(){
+  const token = localStorage.getItem("token")
     await axios.put(`http://localhost:4000/blog/${id}`,{
         title,
         description,
-    })
+    }, {headers : {Authorization : `Bearer ${token}`}})
 alert("Updated Blog")
   }
 

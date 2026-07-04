@@ -163,7 +163,8 @@ export let Edit = async (req,res)=>{
 
 export let Delete = async (req,res)=>{
   try{
-    await blog.findByIdAndDelete(req.params.id);
+    
+     await blog.findByIdAndDelete(req.params.id);
     res.json({
       succes : true,
       msg : "Blog deleted successfully",

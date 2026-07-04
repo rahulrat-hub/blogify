@@ -40,17 +40,26 @@ function Allblog() {
 
   const deleteBlog = async (id) => {
     try{
-      await axios.delete(`http://localhost:4000/blog/${id}`);
-      alert("Blog Deleted")
+    
+      const token = localStorage.getItem("token")
+     const res =  await axios.delete(`http://localhost:4000/blog/${id}`,{headers : {Authorization : `Bearer ${token}`}});
+      
+         if(res.data.success){
+          alert("Blog Deleted")
+          // {update}
+          setBlogFetch(
+            blogfetch.filter((item)=> item._id !== id)
+          )
 
-      // {update}
-      setBlogFetch(
-        blogfetch.filter((item)=> item._id !== id)
-      )
+        } else{
+          alert(res.data.msg)
+        }
+
     } catch (error){
       console.log(error)
     }
   }
+
 
   return (
     <div className="bg-white text-black dark:bg-gray-900  border-white dark:text-white">

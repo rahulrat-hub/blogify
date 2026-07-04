@@ -42,7 +42,7 @@ return (
                
                 </div>
                   
-                   <div className="absolute bottom-20 left-10 font-bold ">
+                   <div className="absolute bottom-5 left-10 font-bold ">
                     <Authorinfo
                    author="Admin"
                    createdAt={blog.createdAt}

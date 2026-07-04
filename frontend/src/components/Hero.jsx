@@ -77,8 +77,8 @@ function Hero() {
               <DescriptionIcon />
             </span>
             <div className="mx-2">
-              <p className="text-3xl">500+</p>
-              <p>Articles </p>
+              <p className="text-2xl">500+</p>
+              <p className="text-[14px] font-bold">Articles </p>
             </div>
           </div>
 
@@ -87,8 +87,8 @@ function Hero() {
               <GroupIcon />
             </span>
             <div className="mx-2">
-              <p className="text-3xl">10k+</p>
-              <p>Readers</p>
+              <p className="text-2xl">10k+</p>
+              <p className="text-[14px] font-bold">Readers</p>
             </div>
           </div>
 
@@ -97,8 +97,8 @@ function Hero() {
               <VisibilityIcon />
             </span>
             <div className="mx-2">
-              <p className="text-3xl">50k</p>
-              <p>Page views</p>
+              <p className="text-2xl">50k</p>
+              <p className="text-[14px] font-bold">Page views</p>
             </div>
           </div>
         </div>
@@ -106,7 +106,7 @@ function Hero() {
       </div>
 
       <div className="right w-140 mr-20">
-        <img src={hero2} alt="" className="w-full" />
+        <img src={hero2} alt="" className="w-full " />
       </div>
       
     </div>
