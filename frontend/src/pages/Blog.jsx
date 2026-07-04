@@ -50,7 +50,7 @@ if(blogdetail.data.success){
 
 }
   return (
-    <div className="min-h w-full relative ">
+    <div className="min-h w-full relative bg-white text-black dark:bg-gray-900 dark:text-white ">
       <img src={bgr} alt="" className="h-[85%] w-full" />
 
       <div className="absolute top-1 left-85 border-2 rounded-[10px] ">

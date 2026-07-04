@@ -4,9 +4,11 @@ import EmailIcon from "@mui/icons-material/Email";
 import CallIcon from "@mui/icons-material/Call";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import CopyrightIcon from '@mui/icons-material/Copyright';
+import {useNavigate} from 'react-router-dom'
 
 
 function Footer() {
+  const navigate = useNavigate()
     return (
       <div className="h-70 rounded-[10px] border mx-2 mt-4">
          <div className="upper flex gap-20">
@@ -49,8 +51,8 @@ function Footer() {
 
         <div className="">
             <h1 className="text-[20px] font-bold m-2">Community</h1>
-            <p className="font-medium p-2">Create Account</p>
-            <p className="font-medium p-2">Sign-in</p>
+            <p onClick={()=>navigate("/register")} className="font-medium p-2 cursor-pointer">Create Account</p>
+            <p onClick={()=>navigate("/register")} className="font-medium p-2">Sign-in</p>
             <p className="font-medium p-2">Bookmark Article</p>
             <p className="font-medium p-2">Newsletter</p>
         </div>

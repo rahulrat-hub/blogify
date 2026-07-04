@@ -7,7 +7,7 @@ function Contact() {
     <div className="min-h-screen bg-white text-black dark:bg-gray-900 dark:text-white">
 
       {/* Hero Section */}
-      <section className="w-full bg-white py-20 px-8">
+      <section className="w-full bg-white text-black dark:bg-gray-900 dark:text-white py-20 px-8">
         <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-10 items-center">
           
           <div>
@@ -40,7 +40,7 @@ function Contact() {
       </section>
 
       {/* Contact Form */}
-      <section className="py-20 px-8">
+      <section className="py-20 px-8 ">
         <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12">
 
           {/* Form */}
@@ -125,7 +125,7 @@ function Contact() {
       </section>
 
       {/* Social Section */}
-      <section className="py-16 bg-white text-center">
+      <section className="py-16 bg-white text-black dark:bg-gray-900 dark:text-white text-center">
         <h2 className="text-4xl font-bold">
           Follow & Stay Updated
         </h2>
@@ -135,10 +135,10 @@ function Contact() {
         </p>
 
         <div className="flex justify-center gap-6 mt-8">
-          <button className="w-12 h-12 rounded-full border">F</button>
-          <button className="w-12 h-12 rounded-full border">I</button>
-          <button className="w-12 h-12 rounded-full border">X</button>
+          <button className="w-12 h-12 rounded-full border">B</button>
           <button className="w-12 h-12 rounded-full border">L</button>
+          <button className="w-12 h-12 rounded-full border">O</button>
+          <button className="w-12 h-12 rounded-full border">G</button>
         </div>
       </section>
 

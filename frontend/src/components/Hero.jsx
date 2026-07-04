@@ -7,9 +7,11 @@ import DescriptionIcon from "@mui/icons-material/Description";
 import GroupIcon from "@mui/icons-material/Group";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import Marquee from './Marquee'
+import {useNavigate} from 'react-router-dom'
 
 
 function Hero() {
+  const navigate = useNavigate()
   return (
     <div className="">
       <div className="min-h w-full p-4 flex gap-20">
@@ -26,11 +28,11 @@ function Hero() {
         </p>
 
         <div className="flex m-4 gap-2 ">
-          <button className="text-[14px] font-medium border p-2 rounded-[5px] bg-black text-white">
+          <button onClick={()=>navigate("/allblog")} className="text-[14px] font-medium border p-2 rounded-[5px] bg-black text-white cursor-pointer">
             Explore Blogs
           </button>
 
-          <button className="text-[14px] font-medium border p-2 rounded-[5px]">
+          <button onClick={()=>navigate("/blog")} className="text-[14px] font-medium border p-2 rounded-[5px] cursor-pointer">
             Start Blogs
           </button>
         </div>

@@ -43,7 +43,7 @@ alert("Updated Blog")
   }, [id]);
 
   return (
-    <div className="p-10">
+    <div className="p-10 bg-white text-black dark:bg-gray-900 dark:text-white">
       {" "}
       <h1 className="text-2xl font-bold mb-5">Edit Blog</h1>{" "}
       <input

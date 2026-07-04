@@ -13,7 +13,7 @@ function Allblog() {
   async function fetchData() {
     try {
       let result = await axios.get(`http://localhost:4000/blogs?search=${search}&sort=${sort}`);
-      console.log(result.data);
+      // console.log(result.data);
 
       if (result.data.success) {
         setBlogFetch(result.data.bloginfo);

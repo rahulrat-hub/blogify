@@ -2,6 +2,7 @@ import { useState } from "react";
 import bgr from "../assets/bgr.png";
 import MenuBookIcon from "@mui/icons-material/MenuBook";
 import BookmarkIcon from "@mui/icons-material/Bookmark";
+import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
 import axios from 'axios'
 
 function Register({settoken}) {
@@ -54,7 +55,7 @@ try{
   }
 
   return (
-    <div className="flex p-4">
+    <div className="flex p-4 bg-white text-black dark:bg-gray-900 dark:text-white">
       {/* {LEFT}   */}
 
       <div className="left h-130 w-full relative rounded-l-[10px]">
@@ -65,7 +66,7 @@ try{
         />
 
         <div className="absolute top-0 w-full p-2">
-          <h1 className="text-2xl font-bold px-8 py-2">
+          <h1 className="text-2xl font-bold px-8 py-2 underline underline-offset-2 decoration-blue-400">
             Join MyBlog Community.
           </h1>
 
@@ -77,7 +78,7 @@ try{
 
           {/* {1} */}
           <div className="flex w-2/3 gap-2 px-10 py-4">
-            <MenuBookIcon className="scale-140" />
+            <MenuBookIcon className="scale-140 border rounded p-1 m-2 bg-[#EFF6FF] text-[#2563EB]" />
 
             <div className="text-[15px] flex flex-col gap-1">
               <h1 className="font-bold">Read Quality Content</h1>
@@ -89,7 +90,7 @@ try{
           </div>
           {/* {2} */}
           <div className="flex w-2/3 gap-2 px-10 py-4">
-            <BookmarkIcon className="scale-140" />
+            <BookmarkIcon className="scale-140 bg-[#ECFDF5] text-[#10B981] border rounded p-1 m-2" />
 
             <div className="text-[15px] flex flex-col gap-1">
               <h1 className="font-bold">Save & Organize</h1>
@@ -103,7 +104,7 @@ try{
           {/* {3} */}
 
           <div className="flex w-2/3 gap-2 px-10 py-6">
-            <BookmarkIcon className="scale-140" />
+            <PeopleAltIcon className="scale-140 border rounded p-1 m-2 bg-[#FEF3C7] text-[#F59E0B]" />
 
             <div className="text-[15px] flex flex-col gap-1">
               <h1 className="font-bold">Engage & Connect</h1>
