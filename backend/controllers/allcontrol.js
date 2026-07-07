@@ -7,6 +7,7 @@ import jwt from 'jsonwebtoken'
 export let Registerpost = async (req, res) => {
   try {
     let { username, name, password } = req.body;
+    
 
     console.log(req.body);
 
@@ -61,7 +62,7 @@ export let Loginpost = async (req, res) => {
       const token = jwt.sign({ 
         id: user._id,
       role : user.role,
-      }, process.env.JWT_SECRET,
+      }, "secretkey12",
         {expiresIn : "1d"}
       );
       console.log(token);
