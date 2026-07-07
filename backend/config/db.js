@@ -2,7 +2,7 @@ import mongoose from 'mongoose'
 
 const connectDB = async () =>{
 try{
-   await mongoose.connect(process.env.MONGO_URL);
+   await mongoose.connect("mongodb://127.0.0.1:27017/");
    console.log("MongoDB connected")
 }catch (error){
     console.log("MongoDB connection error :", error.message)
@@ -10,4 +10,4 @@ try{
 }
 }
 
-export default connectDB
+export default connectDB;
